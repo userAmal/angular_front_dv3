@@ -1,0 +1,36 @@
+<div class="container">
+
+  <form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2 mt-2 ">
+      <label>Nom client en tapant </label>
+      <input #nom="ngModel" [(ngModel)]="searchTerm" name="searchTerm" class="form-control" placeholder="Search reservation">
+
+    </div>
+  </form>
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped ">
+        <thead>
+        <tr>
+          <th>numéro de reservation</th>
+          <th>Nom et prénom de client</th>
+          <th>Prix séjour</th>
+          <th>Date début</th>
+          <th>Date fin</th>
+          <th>type de reservation</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let reservation of reservations | searchFilter: searchTerm ">
+        <tr>
+          <td>{{reservation.idReservation}}</td>
+          <td>{{reservation.nomclient}}</td>
+          <td>{{reservation.prixsejour}}</td>
+          <td>{{reservation.datedebut | date:'dd/MM/yyyy'}}</td>
+            <td>{{reservation.datefin | date:'dd/MM/yyyy'}}</td>
+          <td>{{reservation.type?.typereservation}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

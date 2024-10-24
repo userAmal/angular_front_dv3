@@ -1,0 +1,49 @@
+<div class="container">
+    <div>
+        <h2>Ajouter une reservation :</h2>
+    </div>
+    <form>
+        <div HIDDEN class="col-sm-2 col-md-2 col-lg-2">
+            <label>numéro de reservation</label>
+            <input type="text" [(ngModel)]="newReservation.idReservation" name="numreservation" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom client</label>
+            <input type="text" [(ngModel)]="newReservation.nomclient" name="nomclient" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Prix séjour</label>
+            <input type="number" [(ngModel)]="newReservation.prixsejour" name="prixsejour" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date début</label>
+            <input type="date" [(ngModel)]="newReservation.datedebut" name="datedebut" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date fin</label>
+            <input type="date" [(ngModel)]="newReservation.datefin" name="datefin" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>type de reservation</label>
+            <select class="form-control form-control-lg" id="idty" name="idty" [(ngModel)]="newidty">
+                <option *ngFor="let ty of types" [value]="ty.idty">
+                    {{ty.typereservation}}
+                </option>
+            </select>
+        </div>
+        <div class="col-sm-16 col-md-16 col-lg-16">
+            <label class="mb-2">Image :</label>
+            <input type="file" (change)="onImageUpload($event)" name="logo" class="form-control">
+            <div class="col-sm-16 col-md-16 col-lg-16">
+                <img [src]="imagePath" class="card-img-top img-fluid rounded-start"
+                    style="width: 500px; height: 300px" />
+            </div>
+        </div>
+
+        <div class="mt-2">
+
+
+            <button type="submit" (click)="addreservation()" class="btn btn-success">Ajouter</button>
+        </div>
+    </form>
+</div>

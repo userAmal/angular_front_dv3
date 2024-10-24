@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped">
+    <tr> <th>numéro de reservation</th><th>Nom et prénom de client </th> <th>Prix séjour</th> <th>Date début</th> <th>Date fin</th><th>type de reservation</th><th>Image</th></tr>
+    <tbody *ngFor="let reservation of reservations">
+    <tr >
+    <td>{{reservation.idReservation}}</td>
+    <td>{{reservation.nomclient}}</td>
+    <td>{{reservation.prixsejour}}</td>
+    <td>{{reservation.datedebut | date:'dd/MM/yyyy'}}</td>
+    <td>{{reservation.datefin | date:'dd/MM/yyyy'}}</td>
+    <td>{{reservation.type.typereservation}}</td>
+    <td><img class="card-img-top img-responsive"  
+        src="{{apiurl+'/image/loadfromFS/'+reservation.idReservation}}"         style = "height :50px;width:100px"> 
+</td> 
+    <td><a  *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerReservation(reservation)">Supprimer</a></td>
+    <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updatereservation',reservation.idReservation]">Modifier</a></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
