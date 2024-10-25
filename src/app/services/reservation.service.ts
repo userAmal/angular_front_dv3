@@ -127,10 +127,10 @@ loadImage(id: number): Observable<Image> {
   const url = `${this.apiURL + '/image/get/info'}/${id}`; 
   return this.http.get<Image>(url); 
 } 
-uploadImageRes(file: File, filename: string, idProd:number): Observable<any>{ 
+uploadImageRes(file: File, filename: string, idRes:number): Observable<any>{ 
   const imageFormData = new FormData(); 
   imageFormData.append('image', file, filename); 
-  const url = `${this.apiURL + '/image/uplaodImageProd'}/${idProd}`; 
+  const url = `${this.apiURL + '/image/uplaodImageRes'}/${idRes}`; 
   return this.http.post(url, imageFormData); 
 } 
 supprimerImage(id : number) { 

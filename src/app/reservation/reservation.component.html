@@ -10,9 +10,8 @@
     <td>{{reservation.prixsejour}}</td>
     <td>{{reservation.datedebut | date:'dd/MM/yyyy'}}</td>
     <td>{{reservation.datefin | date:'dd/MM/yyyy'}}</td>
-    <td>{{reservation.type.typereservation}}</td>
-    <td><img class="card-img-top img-responsive"  
-        src="{{apiurl+'/image/loadfromFS/'+reservation.idReservation}}"         style = "height :50px;width:100px"> 
+    <td>{{reservation.type?.typereservation}}</td>
+    <td><img class="card-img-top img-responsive"   src = "{{reservation.imageStr}}"        style = "height :50px;width:100px"> 
 </td> 
     <td><a  *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerReservation(reservation)">Supprimer</a></td>
     <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updatereservation',reservation.idReservation]">Modifier</a></td>

@@ -23,16 +23,14 @@ export default class ReservationComponent   {
     }
 
   chargerReservations(){
-    // this.ReservationService.listeReservation().subscribe(res => {
-    //   console.log(res);
-    //   this.reservations = res;
-    //   this.reservations.forEach((res) => { 
+     this.reservationService.listeReservation().subscribe(res => {
+     console.log(res);
+      this.reservations = res;
+      this.reservations.forEach((res) => { 
 
-    //     res.imageStr = 'data:' + res.images[0].type + ';base64,' +  res.images[0].image;      }); 
-    //   });          
-    this.reservationService.listeReservation().subscribe(ress => { 
-      this.reservations = ress; 
-      }); 
+        res.imageStr = 'data:' + res.images[0].type + ';base64,' +  res.images[0].image;      }); 
+       });          
+
   }
 
   supprimerReservation(r: reservation)

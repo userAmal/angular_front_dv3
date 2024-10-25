@@ -37,7 +37,7 @@ export class UpdateReservationComponent {
       });
   }
 
-  onAddImageProduit() { 
+  onAddImageReservation() { 
     this.reservationService 
     .uploadImageRes(this.uploadedImage, 
   this.uploadedImage.name,this.currentreservation.idReservation) 

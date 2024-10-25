@@ -48,6 +48,7 @@ export class RegisterComponent implements OnInit{
     error:(err:any)=>{
     if(err.error.errorCode=="USER_EMAIL_ALREADY_EXISTS"){
           this.err= "Email already used";
+          this.loading=false;
         }
       }
       }
